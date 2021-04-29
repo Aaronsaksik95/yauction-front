@@ -4,8 +4,55 @@
       <p>Fitrer</p>
       <img class="icon-filter" src="../../assets/filter.png" alt="" />
     </div>
-    <h3 v-if="this.$route.query.state" class="reset-filter" @click="resetFilter">Réinitialiser</h3>
+    <h3
+      v-if="this.$route.query.state"
+      class="reset-filter"
+      @click="resetFilter"
+    >
+      Réinitialiser
+    </h3>
     <ul class="list-filter">
+      <li>
+        <label>Prix</label>
+        <div class="year-price-label">
+          <small for="">Min</small>
+          <small for="">Max</small>
+        </div>
+        <div class="year-price">
+          <input
+            placeholder="Min"
+            type="number"
+            id="price"
+            v-model="startingPriceMin"
+          /><input placeholder="Max" type="number" v-model="startingPriceMax" />
+        </div>
+      </li>
+      <li>
+        <label>Année</label>
+        <div class="year-price-label">
+          <small for="">Min</small>
+          <small for="">Max</small>
+        </div>
+        <div class="year-price">
+          <input placeholder="Min" type="number" v-model="yearMin" />
+          <input placeholder="Max" type="number" v-model="yearMax" />
+        </div>
+      </li>
+      <li>
+        <label>KM</label>
+        <div class="year-price-label">
+          <small for="">Min</small>
+          <small for="">Max</small>
+        </div>
+        <div class="year-price">
+          <input placeholder="Min" type="number" v-model="mileageMin" />
+          <input placeholder="Max" type="number" v-model="mileageMax" />
+        </div>
+      </li>
+      <li>
+        <label>Couleur</label>
+        <input placeholder="Color" type="text" v-model="color" />
+      </li>
       <li>
         <label>Etat</label>
         <select v-model="state">
@@ -38,21 +85,6 @@
         </select>
       </li>
       <li>
-        <label>Année</label>
-        <div class="year-price-label">
-          <small for="">Min</small>
-          <small for="">Max</small>
-        </div>
-        <div class="year-price">
-          <input placeholder="Min" type="number" v-model="yearMin" />
-          <input placeholder="Max" type="number" v-model="yearMax" />
-        </div>
-      </li>
-      <li>
-        <label>Couleur</label>
-        <input placeholder="Color" type="text" v-model="color" />
-      </li>
-      <li>
         <label>Energie</label>
         <select v-model="energy">
           <option value="essence">Essence</option>
@@ -72,21 +104,6 @@
             {{ region.nom }}
           </option>
         </select>
-      </li>
-      <li>
-        <label>Prix</label>
-        <div class="year-price-label">
-          <small for="">Min</small>
-          <small for="">Max</small>
-        </div>
-        <div class="year-price">
-          <input
-            placeholder="Min"
-            type="number"
-            id="price"
-            v-model="startingPriceMin"
-          /><input placeholder="Max" type="number" v-model="startingPriceMax" />
-        </div>
       </li>
       <li>
         <Button
@@ -119,6 +136,8 @@ export default {
       yearMax: 0,
       startingPriceMin: 0,
       startingPriceMax: 0,
+      mileageMin: 0,
+      mileageMax: 0,
       allBrands: [],
       allRegions: [],
       allModels: [],
@@ -144,13 +163,13 @@ export default {
     },
     applyFilter() {
       this.$router.push(
-        `/vehicleFilter?vehicle=${this.vehicle}&state=${this.state}&brand=${this.brand}&model=${this.model}&yearMin=${this.yearMin}&yearMax=${this.yearMax}&color=${this.color}&energy=${this.energy}&region=${this.region}&startingPriceMin=${this.startingPriceMin}&startingPriceMax=${this.startingPriceMax}`
+        `/vehicleFilter?vehicle=${this.vehicle}&state=${this.state}&brand=${this.brand}&model=${this.model}&yearMin=${this.yearMin}&yearMax=${this.yearMax}&color=${this.color}&energy=${this.energy}&mileageMin=${this.mileageMin}&mileageMax=${this.mileageMax}&region=${this.region}&startingPriceMin=${this.startingPriceMin}&startingPriceMax=${this.startingPriceMax}`
       );
       document.location.reload();
     },
-    resetFilter(){
+    resetFilter() {
       this.$router.push(`/vehicle?vehicle=${this.vehicle}`);
-    }
+    },
   },
 };
 </script>
@@ -202,7 +221,7 @@ export default {
     margin: 0px auto 10px auto;
   }
 }
-.reset-filter{
+.reset-filter {
   color: rgb(255, 196, 100);
   cursor: pointer;
 }

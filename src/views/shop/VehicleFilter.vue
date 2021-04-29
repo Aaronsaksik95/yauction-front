@@ -20,6 +20,11 @@
           <p>{{ yearMin }}-</p>
           <p>{{ yearMax }}</p>
         </div>
+        <div class="subtitle" v-if="mileageMin != 0 && mileageMax != 0">
+          <p>KM:</p>
+          <p>{{ mileageMin }}-</p>
+          <p>{{ mileageMax }}</p>
+        </div>
         <div class="subtitle" v-if="color != ''">
           <p>Couleur:</p>
           <p>{{ color }}</p>
@@ -76,6 +81,8 @@ export default {
       model: this.$route.query.model,
       yearMin: this.$route.query.yearMin,
       yearMax: this.$route.query.yearMax,
+      mileageMin: this.$route.query.mileageMin,
+      mileageMax: this.$route.query.mileageMax,
       color: this.$route.query.color,
       energy: this.$route.query.energy,
       region: this.$route.query.region,
