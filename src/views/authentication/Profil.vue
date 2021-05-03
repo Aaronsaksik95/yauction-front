@@ -45,13 +45,13 @@
       <div v-if="!isAdmin">
         <Button
           v-if="!edit"
-          class="btn btn-update btn-large"
+          class="btn btn-whitePink btn-large"
           btnText="Modifier"
           :btnFunction="editTrue"
         />
         <Button
           v-else
-          class="btn btn-validate btn-large"
+          class="btn btn-whitePink btn-large"
           btnText="Valider"
           :btnFunction="editUser"
         />
@@ -91,7 +91,7 @@ export default {
   methods: {
     logout: function () {
       localStorage.removeItem("token");
-      document.location.reload()
+      document.location.reload();
     },
     editTrue() {
       this.edit = true;

@@ -2,9 +2,15 @@
   <header class="header__main">
     <div class="header__nav">
       <ul>
-        <li><router-link to="/mySales/addProduct">Créer un produit</router-link></li>
         <li>
-          <router-link to="/mySales/myProducts">Mes produits</router-link>
+          <router-link class="add" to="/mySales/addProduct"
+            >Créer un produit</router-link
+          >
+        </li>
+        <li>
+          <router-link class="my" to="/mySales/myProducts"
+            >Mes produits</router-link
+          >
         </li>
       </ul>
     </div>
@@ -24,8 +30,23 @@ export default {};
     margin-bottom: 0px;
     li {
       margin: 20px;
-      a {
-        color: #009da8;
+      .add {
+        color: #39cdd8;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 13px;
+        border: 1px solid #39cdd8;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      .my {
+        color: #d874ff;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 13px;
+        border: 1px solid #d874ff;
+        padding: 5px;
+        border-radius: 5px;
       }
     }
   }

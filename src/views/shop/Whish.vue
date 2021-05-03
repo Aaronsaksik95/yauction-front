@@ -38,7 +38,7 @@
         </li>
       </ul>
       <Button
-        class="btn"
+        class="btn btn-whitePink"
         btnText="Supprimer les favoris"
         :btnFunction="removeWhish"
       />

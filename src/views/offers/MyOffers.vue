@@ -8,11 +8,11 @@
           <p><strong>Date:</strong> {{ i.created_at.substring(0, 10) }}</p>
           <p><strong>Heure:</strong> {{ i.created_at.substring(11, 16) }}</p>
           <p>
-            Status: <strong>{{ i.status }}</strong>
+            Status: <strong :class="[colortext]">{{ i.status }}</strong>
           </p>
         </div>
         <ul class="responsive-table">
-          <li class="table-header">
+          <li class="table-header" :class="[colorbgd]">
             <div class="col col-2">Aperçu</div>
             <div class="col col-2">Prix offert</div>
             <div class="col col-2">Produit</div>
@@ -25,9 +25,11 @@
                 alt="image produit"
               />
             </div>
-            <p><strong>{{ i.offeredPrice }}€</strong></p>
+            <p>
+              <strong>{{ i.offeredPrice }}€</strong>
+            </p>
             <div class="col col-2">
-              <router-link :to="`/product/${i.product._id}`"
+              <router-link :class="[colortext]" :to="`/product/${i.product._id}`"
                 >Voir le produit</router-link
               >
             </div>
@@ -36,7 +38,9 @@
       </div>
     </div>
     <div v-else>
-      <TitlePage :title="`Vous n'avez pas d'offre ${this.$route.params.status}`" />
+      <TitlePage
+        :title="`Vous n'avez pas d'offre ${this.$route.params.status}`"
+      />
     </div>
   </div>
 </template>
@@ -58,6 +62,9 @@ export default {
       products: [],
       idOrders: [],
       offers: [],
+      status: this.$route.params.status,
+      colorbgd: "",
+      colortext: "",
     };
   },
   components: {
@@ -71,6 +78,16 @@ export default {
     this.get_my_offers(id).then((data) => {
       this.offers = data.myOffers;
     });
+    if (this.status == "waiting") {
+      this.colorbgd = "waiting";
+      this.colortext = "waitingText";
+    } else if (this.status == "validated") {
+      this.colorbgd = "validated";
+      this.colortext = "validatedText";
+    } else if (this.status == "refused") {
+      this.colorbgd = "refused";
+      this.colortext = "refusedText";
+    }
   },
 };
 </script>
@@ -100,12 +117,10 @@ export default {
       width: 100%;
     }
     a {
-      color: #39cdd8;
       font-weight: bold;
     }
   }
   .table-header {
-    background-color: #39cdd8;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -120,5 +135,23 @@ export default {
   .col-2 {
     flex-basis: 30%;
   }
+}
+.waiting {
+  background-color: #d874ff;
+}
+.validated {
+  background-color: #39cdd8;
+}
+.refused {
+  background-color: #ff7979;
+}
+.waitingText {
+  color: #d874ff;
+}
+.validatedText {
+  color: #39cdd8;
+}
+.refusedText {
+  color: #ff7979;
 }
 </style>

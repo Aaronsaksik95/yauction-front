@@ -133,7 +133,7 @@ export default {
       energy: "",
       region: "",
       yearMin: 0,
-      yearMax: 0,
+      yearMax: new Date().getFullYear(),
       startingPriceMin: 0,
       startingPriceMax: 0,
       mileageMin: 0,

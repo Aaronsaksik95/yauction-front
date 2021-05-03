@@ -22,7 +22,7 @@
       />
       <input placeholder="Pays" type="text" v-model="country" />
       <Button
-        class="btn btn-large btn-black"
+        class="btn btn-large btn-whitePink"
         btnText="Inscription"
         :btnFunction="signup"
       />

@@ -5,7 +5,7 @@
       <input placeholder="Email" type="email" v-model="email" />
       <input placeholder="Mot de passe" type="password" v-model="password" />
       <Button
-        class="btn btn-large btn-black"
+        class="btn btn-large btn-whitePink"
         btnText="Connexion"
         :btnFunction="login"
       />

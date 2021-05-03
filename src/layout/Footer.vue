@@ -6,9 +6,15 @@
         Ce site Web est un projet d'école, dans le but de nous exercer et de
         nous évaluer, que ça soit coté back-end ou front-end. Donc le paiement
         est fictif, comme les commandes. Les images ainsi que les produits ont
-        été prise sur le site
-        <a href="https://www.nike.com/"><strong>NIKE</strong></a
-        >.</small
+        été prise sur différents sites de concessionnaire.
+        <a href="https://www.mercedes-benz.fr/passengercars.html"
+          ><strong>Mercedes</strong></a
+        >
+        <a href="https://www.audi.fr/fr/web/fr.html"><strong>Audi</strong></a>
+        <a href="https://www.bmw.fr/fr/accueil.html"><strong>BMW</strong></a>
+        <a href="https://www.ferrari.com/fr-FR"
+          ><strong>Ferrari...</strong></a
+        ></small
       >
     </div>
     <p>Copyright © 2021</p>
@@ -31,6 +37,11 @@ footer {
   }
   p {
     background-color: #a9f9ff;
+  }
+  small {
+    a {
+      margin: 10px;
+    }
   }
 }
 </style>

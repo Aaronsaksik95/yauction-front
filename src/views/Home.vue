@@ -1,20 +1,24 @@
 <template>
   <div>
+    <h4>CHOISISSEZ VOTRE VEHICULE</h4>
     <div class="vehicle">
       <img
-        class="icon-car"
+        class="icon"
+        :class="{ border: vehicle == 'voiture' }"
         @click="() => chooseType('voiture')"
         src="../assets/car.png"
         alt=""
       />
       <img
-        class="icon-moto"
+        class="icon"
+        :class="{ border: vehicle == 'moto' }"
         @click="() => chooseType('moto')"
         src="../assets/moto.png"
         alt=""
       />
       <img
         class="icon-scooter"
+        :class="{ border: vehicle == 'scooter' }"
         @click="() => chooseType('scooter')"
         src="../assets/scooter.png"
         alt=""
@@ -79,30 +83,19 @@
       </li>
       <li>
         <Button
-          class="btn btn-validate m-home"
+          class="btn btn-whitePink m-home"
           btnText="Rechercher"
           :btnFunction="applyFilter"
         />
       </li>
     </ul>
-    <!-- <small>Imaginez de plus belles images pour le caroussel. </small>
-    <small>Et désolé pour le responsive je n'ai pas eu le temps.</small> -->
-    <!-- <div>
-      <Carousel>
-      <CarouselSlide :index="0">
-        <img class="img-carousel" src="http://www.airsh3agroupe.com/wp-content/uploads/2020/02/dubai-banner-2.png" alt />
-      </CarouselSlide>
-      <CarouselSlide :index="1">
-        <img class="img-carousel" src="http://www.trecom.fr/zen-asie/DUBAI.jpg" alt />
-      </CarouselSlide>
-      <CarouselSlide :index="2">
-        <img class="img-carousel" src="https://cdn.ttgtmedia.com/visuals/ComputerWeekly/Hero%20Images/New-york-manhattan-skyline-fotolia.jpg" alt />
-      </CarouselSlide>
-    </Carousel>
+    <h4>TROUVER VOTRE MARQUE</h4>
+    <ul class="list-brand">
+      <router-link v-for="brand in allBrands" :key="brand._id" :to="`/vehicleFilter?vehicle=${vehicle}&state=${state}&brand=${brand._id}&model=${model}&yearMin=${yearMin}&yearMax=${yearMax}&color=${color}&energy=${energy}&mileageMin=${mileageMin}&mileageMax=${mileageMax}&region=${region}&startingPriceMin=${startingPriceMin}&startingPriceMax=${startingPriceMax}`">{{ brand.title }}</router-link>
+    </ul>
+    <div class="products">
+      <ProductsGrid :productArray="products" :detail="true" />
     </div>
-    <div class="search__content">
-      <ProductsGrid :productArray="filteredShop" :detail="true"/>
-    </div> -->
   </div>
 </template>
 
@@ -111,7 +104,7 @@ import Carousel from "../components/carousel/Carousel";
 import CarouselSlide from "../components/carousel/CarouselSlide";
 import TitlePage from "../components/tools/TitlePage";
 import ProductsGrid from "../components/product/ProductGrid";
-import Button from "../components/tools/Button"
+import Button from "../components/tools/Button";
 import ApiProducts from "../mixins/ApiProducts";
 import ApiBrands from "../mixins/ApiBrands";
 import ApiModels from "../mixins/ApiModels";
@@ -123,7 +116,7 @@ export default {
     ProductsGrid,
     Carousel,
     CarouselSlide,
-    Button
+    Button,
   },
   data: function () {
     return {
@@ -175,7 +168,7 @@ export default {
     },
     chooseType(vehicle) {
       this.vehicle = vehicle;
-      console.log(this.vehicle)
+      console.log(this.vehicle);
     },
   },
 };
@@ -191,6 +184,7 @@ export default {
   background: #fbf1ff;
   padding: 20px;
   border-radius: 20px;
+  margin: 0px auto 30px;
   width: 60%;
   p {
     font-size: 25px;
@@ -209,23 +203,48 @@ export default {
     margin: 5px;
   }
 }
-.icon-car {
-  margin: 10px;
-  width: 40px;
-  cursor: pointer;
+.vehicle {
+  margin: auto;
+  .icon {
+    margin: 10px;
+    width: 50px;
+    cursor: pointer;
+  }
+  .icon-scooter {
+    margin: 10px 10px;
+    width: 50px;
+    cursor: pointer;
+  }
 }
-.icon-moto {
-  margin: 10px;
-  width: 40px;
-  cursor: pointer;
+.border {
+  border-bottom: 3px solid black;
 }
-.icon-scooter {
-  margin: 13px 10px;
-  width: 40px;
-  cursor: pointer;
+h4{
+width: 300px;
+color: #000000;
+margin: 50px auto 20px auto;
+border-bottom: 1px solid #39cdd8;
 }
-.vehicle{
-  text-align: left;
-  margin: 10px 100px;
+.list-brand {
+  list-style-type: none;
+  display: flex;
+  width: 70%;
+  margin: auto;
+  overflow: scroll;
+  padding: 0px;
+  a {
+    margin: 5px 10px;
+    color: #39cdd8;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    border: 1px solid #39cdd8;
+    background: #dbfdff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+.products {
+  margin: 60px;
 }
 </style>

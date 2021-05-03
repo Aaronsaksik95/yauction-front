@@ -17,7 +17,6 @@ export default {
                 .then(res => res.json())
         },
         get_products_filter() {
-            console.log("xouxou")
             return fetch(`${apiConfigs.apiUrl}products/filter/vehicle?vehicle=${this.vehicle}&state=${this.state}&brand=${this.brand}&model=${this.model}&yearMin=${this.yearMin}&yearMax=${this.yearMax}&color=${this.color}&energy=${this.energy}&mileageMin=${this.mileageMin}&mileageMax=${this.mileageMax}&region=${this.region}&startingPriceMin=${this.startingPriceMin}&startingPriceMax=${this.startingPriceMax}`, {
             }).then(res => res.json())
         },

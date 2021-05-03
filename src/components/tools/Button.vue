@@ -26,13 +26,9 @@ export default {
   background: #fbf1ff;
 }
 .btn {
-  &-blue {
-    background: blue;
-    color: white;
-  }
-  &-black {
-    background: rgb(34, 34, 34);
-    color: white;
+  &-whitePink {
+    background: #efc7ff;
+    color: #9300ce;
   }
   &-validate {
     background: #39cdd8;

@@ -33,7 +33,8 @@ export default {
     li {
       margin: 20px;
       a {
-        color: #009da8;
+        color: black;
+        font-weight: 100;
       }
     }
   }
