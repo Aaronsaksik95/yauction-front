@@ -8,6 +8,7 @@
 
     <Footer />
   </div>
+  
 </template>
 
 <script>
@@ -19,6 +20,9 @@ export default {
     Header,
     Footer,
   },
+  created(){
+    setInterval(function(){localStorage.removeItem("token")}, 86400000);
+  }
 };
 </script>
 
@@ -36,7 +40,8 @@ export default {
     display: block;
     border-radius: 10px;
     height: 35px;
-    border: 1px solid rgb(95, 95, 95);
+    border: 0px;
+    background: rgb(226, 226, 226);
     text-indent: 3px;
   }
   select{
@@ -44,7 +49,10 @@ export default {
     border-radius: 10px;
     text-indent: 5px;
     border: 0px;
-    background-color: rgb(218, 218, 218);
+    background: rgb(226, 226, 226);
   }
 }
 </style>
+#fbf1ff
+#e093ff
+#d874ff

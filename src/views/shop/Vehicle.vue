@@ -37,9 +37,10 @@ export default {
   },
   mixins: [ApiProducts],
   created() {
-    this.get_products_vehicle(this.vehicle)
+    this.get_products_vehicle()
       .then((data) => {
         this.products = data.products;
+        console.log(data)
       })
       .catch((err) => console.log(err));
   },

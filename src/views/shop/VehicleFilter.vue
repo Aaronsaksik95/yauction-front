@@ -15,12 +15,12 @@
           <p>Modèle:</p>
           <p>{{ modelTitle }}</p>
         </div>
-        <div class="subtitle" v-if="yearMin != 0 && yearMax != 0">
+        <div class="subtitle" v-if="yearMin != 0 || yearMax != 0">
           <p>Année:</p>
           <p>{{ yearMin }}-</p>
           <p>{{ yearMax }}</p>
         </div>
-        <div class="subtitle" v-if="mileageMin != 0 && mileageMax != 0">
+        <div class="subtitle" v-if="mileageMin != 0 || mileageMax != 0">
           <p>KM:</p>
           <p>{{ mileageMin }}-</p>
           <p>{{ mileageMax }}</p>
@@ -39,7 +39,7 @@
         </div>
         <div
           class="subtitle"
-          v-if="startingPriceMin != 0 && startingPriceMax != 0"
+          v-if="startingPriceMin != 0 || startingPriceMax != 0"
         >
           <p>Prix:</p>
           <p>{{ startingPriceMin }}-</p>

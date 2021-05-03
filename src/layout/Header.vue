@@ -79,12 +79,12 @@ export default {
 
 <style lang="scss" scoped>
 .deco-hover:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #e093ff;
 }
 .cap {
   width: 100%;
   height: 30px;
-  background-color: rgb(235, 235, 235);
+  background-color: #fbf1ff;
 }
 .link-home {
   margin: 5px 50px 0px 10px;

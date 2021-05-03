@@ -132,7 +132,7 @@ export default {
     }
     .tools {
       :hover {
-        background-color: #9fe4e9;
+        background-color: #e8aeff;
       }
       div {
         margin: 10px ;

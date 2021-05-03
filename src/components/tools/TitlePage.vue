@@ -25,7 +25,7 @@
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color:rgb(250, 84, 0);
+            color:#d874ff;
         }
     }
 </style>

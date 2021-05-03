@@ -17,12 +17,12 @@
         <div class="col col-1">Price</div>
         <div class="col col-1">Etat</div>
         <div class="col col-1">Année</div>
-        <div class="col col-1">Energie</div>
         <div class="col col-1">KM</div>
         <div class="col col-1">Date limite</div>
         <div class="col col-1">Supprimer</div>
         <div class="col col-1">Modifier</div>
         <div class="col col-1">Offres</div>
+        <div class="col col-1">Vendu?</div>
       </li>
       <li class="table-row" v-for="item in filteredProds" :key="item._id">
         <div class="col col-1">
@@ -35,7 +35,6 @@
         <div class="col col-1">{{ item.startingPrice }}</div>
         <div class="col col-1">{{ item.state }}</div>
         <div class="col col-1">{{ item.year }}</div>
-        <div class="col col-1">{{ item.energy }}</div>
         <div class="col col-1">{{ item.mileage }}</div>
         <div class="col col-1">{{ item.auctionEndDate.substring(0, 10) }}</div>
 
@@ -60,6 +59,7 @@
             >Les Offres</router-link
           >
         </div>
+        <div class="col col-1">{{ item.isSold }}</div>
       </li>
     </ul>
   </div>
@@ -98,7 +98,7 @@ export default {
   },
   mixins: [ApiProducts],
   created() {
-    this.get_products_vehicle(this.vehicle)
+    this.get_products_vehicle_admin(this.vehicle)
       .then((data) => {
         this.products = data.products;
       })

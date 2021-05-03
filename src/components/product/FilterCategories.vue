@@ -5,7 +5,7 @@
       <img class="icon-filter" src="../../assets/filter.png" alt="" />
     </div>
     <h3
-      v-if="this.$route.query.state"
+      v-if="Object.values(this.$route.query).length > 1"
       class="reset-filter"
       @click="resetFilter"
     >
@@ -107,7 +107,7 @@
       </li>
       <li>
         <Button
-          class="btn btn-update"
+          class="btn btn-three"
           btnText="Appliquer"
           :btnFunction="applyFilter"
         />

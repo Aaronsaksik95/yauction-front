@@ -8,7 +8,6 @@ export default {
         offer(newPrice) {
             if (token) {
                 const decode = VueJwtDecode.decode(token)
-                console.log(decode)
                 return fetch(`${apiConfigs.apiUrl}offers`, {
                     method: "POST",
                     body: JSON.stringify({
@@ -21,7 +20,8 @@ export default {
                         Authorization: token
                     },
                 }).then((res) => res.json(
-                    document.location.reload(),
+                    localStorage.removeItem('product'),
+                    localStorage.removeItem('price')
                 ))
             } else {
                 this.$router.push("./login");
@@ -40,7 +40,7 @@ export default {
                         Authorization: token,
                     },
                     body: JSON.stringify({
-                        amount: this.getTotal * 100,
+                        amount: this.product.startingPrice * 100,
                     }),
                 }
             );
