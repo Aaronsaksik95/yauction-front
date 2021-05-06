@@ -16,31 +16,31 @@
         <div class="info">
           <div>
             <p class="title">Etat</p>
-            <p>{{ product.state }}</p>
+            <p class="data">{{ product.state }}</p>
           </div>
           <div>
             <p class="title">Année</p>
-            <p>{{ product.year }}</p>
+            <p class="data">{{ product.year }}</p>
           </div>
           <div>
             <p class="title">Couleur</p>
-            <p>{{ product.color }}</p>
+            <p class="data">{{ product.color }}</p>
           </div>
           <div>
             <p class="title">Energie</p>
-            <p>{{ product.energy }}</p>
+            <p class="data">{{ product.energy }}</p>
           </div>
           <div>
             <p class="title">Kilométrage</p>
-            <p>{{ product.mileage }} Km</p>
+            <p class="data">{{ product.mileage }} Km</p>
           </div>
           <div>
             <p class="title">Siège</p>
-            <p>{{ product.seat }}</p>
+            <p class="data">{{ product.seat }}</p>
           </div>
           <div>
             <p class="title">Région</p>
-            <p>{{ product.region }}</p>
+            <small class="region">{{ product.region }}</small>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ export default {
     },
     displayInputFalse() {
       this.display = false;
-      this.product.startingPrice = this.formerPrice
+      this.product.startingPrice = this.formerPrice;
     },
     newOffer(newPrice) {
       if (newPrice <= this.formerPrice) {
@@ -217,7 +217,7 @@ export default {
           border-radius: 10px;
           margin: 10px 0px;
         }
-        :last-child {
+        .data {
           margin: 17px 0px;
           text-transform: uppercase;
           font-size: 13px;
@@ -279,5 +279,9 @@ export default {
       }
     }
   }
+}
+.region {
+  font-size: 11px;
+  margin: 20px 0;
 }
 </style>
