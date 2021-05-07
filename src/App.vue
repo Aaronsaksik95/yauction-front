@@ -20,9 +20,6 @@ export default {
     Header,
     Footer,
   },
-  created(){
-    setInterval(function(){localStorage.removeItem("token")}, 86400000);
-  }
 };
 </script>
 
