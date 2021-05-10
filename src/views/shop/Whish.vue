@@ -42,8 +42,6 @@
         btnText="Supprimer les favoris"
         :btnFunction="removeWhish"
       />
-      <h4>Vous aimerez aussi ces articles !</h4>
-      <ProductsGrid :productArray="products" :detail="false" class="grid" />
     </div>
 
     <div v-else>
