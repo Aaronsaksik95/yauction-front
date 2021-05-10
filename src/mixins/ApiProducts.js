@@ -26,6 +26,10 @@ export default {
         },
         get_products_vehicle_admin() {
             return fetch(`${apiConfigs.apiUrl}products/vehicle/admin/${this.vehicle}`, {
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    Authorization: token,
+                },
             }).then(res => res.json())
         },
         get_products_user() {
