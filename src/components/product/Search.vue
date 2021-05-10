@@ -3,7 +3,7 @@
     <input
       class="search"
       type="text"
-      placeholder="Recherche un produit..."
+      placeholder="Recherche un modèle..."
       v-model="searchValue"
       @click="DivResult"
     />
